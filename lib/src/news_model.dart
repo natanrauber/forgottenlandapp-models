@@ -8,6 +8,7 @@ class News {
     this.category,
     this.type,
     this.url,
+    this.content,
   });
 
   News.fromJson(Map<String, dynamic> json) {
@@ -18,6 +19,7 @@ class News {
     category = json['category'] as String?;
     type = json['type'] as String?;
     url = json['url'] as String?;
+    content = json['content'] as String?;
   }
 
   int? id;
@@ -26,4 +28,25 @@ class News {
   String? category;
   String? type;
   String? url;
+  String? content;
+
+  News copyWith({
+    int? id,
+    String? date,
+    String? news,
+    String? category,
+    String? type,
+    String? url,
+    String? content,
+  }) {
+    return News(
+      id: id ?? this.id,
+      date: date ?? this.date,
+      news: news ?? this.news,
+      category: category ?? this.category,
+      type: type ?? this.type,
+      url: url ?? this.url,
+      content: content ?? this.content,
+    );
+  }
 }
